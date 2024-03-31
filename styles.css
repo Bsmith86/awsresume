@@ -1,0 +1,51 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header header header header"
+      ". intro intro ."
+      ". experience . ."
+      ". skills skills .";
+  }
+  
+
+
+.header {
+    grid-area: header;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 3em;
+    padding-bottom: 5em;
+}
+.intro {
+    display: flex;
+    flex-direction: column;
+border: rgb(0, 0, 0);
+border-style: groove;
+padding: 10px;
+display:inline-flex;
+background-color: rgb(236, 230, 224);
+grid-area: intro;
+}
+
+.intro > #buttons {
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+}
+.experience {
+    grid-area: experience;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.experience > .card {
+    border: solid black 4px;
+    max-width:inherit;
+    max-height: fit-content;
+}
+.projects {
+    grid-area: skills;
+}
