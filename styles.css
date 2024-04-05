@@ -53,7 +53,7 @@ grid-area: intro;
     grid-column-start: 2;
     grid-row-start: 2;
     margin: 10px;
-    padding: 0;
+    padding: 10px;
     width: 400px; /* Set the width of the div */
     height: 300px; /* Set the height of the div */
     border: 1px solid black; /* Add a border for visibility */
@@ -67,8 +67,8 @@ grid-area: intro;
     /* max-width:inherit; */
     grid-column-start: 8;
     grid-row-start: 4;
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding: 10px;
     width: 400px; /* Set the width of the div */
     height: 300px; /* Set the height of the div */
     border: 1px solid black; /* Add a border for visibility */
@@ -76,11 +76,12 @@ grid-area: intro;
 
 }
 .text {
-    font-size: 15px; /* Set the font size of the text */
+    font-size: 17px; /* Set the font size of the text */
     overflow: hidden; /* Hide overflowing content */
     white-space: wrap; /* Prevent text from wrapping */
     grid-row-start: 5;
     margin-top: 20;
+    padding-top: 10px;
     text-overflow: ellipsis; /* Add an ellipsis (...) when text overflows */
   }
 .projects {
@@ -97,8 +98,15 @@ grid-area: intro;
     
 }
 .position {
-    grid-row-start: 1;
-}
+    /* margin: 20px; */
+    align-self: center;
+    justify-self: center;
+    /* grid-column: 6/9; */
+    grid-row: 1;
+    font-family: Copperplate;
+    font-size: large;
+} 
+
 .employer {
     grid-row-start: 2;
 }

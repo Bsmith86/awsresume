@@ -6,10 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://kit.fontawesome.com/4e7bec34cd.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
 </head>
 <body>
     
+    <p>Total Visitors: <span id="visitorCount">Loading...</span></p>
+
+    <script>
+        $(document).ready(function() {
+            // Function to update visitor count
+            function updateVisitorCount() {
+                $.post('<YOUR_API_ENDPOINT>', function(data) {
+                    console.log(data);
+                    // Update visitor count on the webpage
+                    $('#visitorCount').text(data.message);
+                }).fail(function(error) {
+                    console.error(error);
+                });
+            }
+
+            // Initially update visitor count
+            updateVisitorCount();
+
+            // Update visitor count every 5 seconds
+            setInterval(updateVisitorCount, 5000);
+        });
+    </script>
+
     <div class="container">
         <div class="header">
             <p>Brandon D. Smith</p>
