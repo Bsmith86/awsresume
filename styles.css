@@ -8,7 +8,7 @@
       ". intro intro ."
       ". experience . ."
       ". skills skills .";
-    background-color: antiquewhite;  
+    background-color: #f3d849;  
   }
   
 
@@ -16,7 +16,7 @@
 .header {
     grid-area: header;
     text-align: center;
-    background-color: #333;
+    background-color: #191718;
     color: #fff;
     margin-bottom: 3em;
     padding-bottom: 5em;
@@ -30,15 +30,16 @@ border: rgb(0, 0, 0);
 border-style: groove;
 padding: 10px;
 display:inline-flex;
-background-color: rgb(236, 230, 224);
+background-color: #e0e5e9;
 grid-area: intro;
-margin-top: 35px;
-
+margin-top: 28px;
+color: rgb(0, 0, 0);
 }
 
 .intro > #buttons {
     display: flex;
     align-items: center;
+    justify-content: center;
     /* flex-direction: row; */
 }
 .experience {
@@ -67,6 +68,8 @@ margin-top: 35px;
 } */
 .experience > .card2 {
     /* border: solid black 4px; */
+    background-color: #d67940; /* light green background */
+    border-radius: 10px;
     display:grid;
     grid-template-rows: 10% 5% 5% 5% 75% ;
     /* max-width:inherit; */
@@ -124,9 +127,9 @@ margin-top: 35px;
 
 
 .experience >.card1 {
-        background-color: #087bac; /* light green background */
+        background-color: #0a62d0; /* light green background */
         border-radius: 10px;
-        border: 1px solid #A8DAB5; /* green border */
+        border: 1px solid #e0e5e9; /* green border */
         padding: 10px;
         /* margin: 10px; */
         margin-bottom: 20px; /* adds some space between cards */
@@ -135,6 +138,21 @@ margin-top: 35px;
         grid-template-rows: 10% 5% 5% 5% 75% ;
         grid-column-start: 2;
         grid-row-start: 2;
+        overflow: hidden;
+        height: 320px;
+    }
+    .experience >.card3 {
+        background-color: #0a62d0; /* light green background */
+        border-radius: 10px;
+        border: 1px solid #e0e5e9; /* green border */
+        padding: 10px;
+        /* margin: 10px; */
+        margin-bottom: 20px; /* adds some space between cards */
+        width: 400px; /* optional: adjust as needed */
+        display:grid;
+        grid-template-rows: 10% 5% 5% 5% 75% ;
+        grid-column-start: 2;
+        grid-row-start: 6;
         overflow: hidden;
         height: 320px;
     }
@@ -151,13 +169,13 @@ margin-top: 35px;
     }
 
     .employer {
-        color: #555; /* dark gray text color */
+        color: rgb(0, 0, 0); /* dark gray text color */
         grid-row-start: 2;
         margin-bottom: 5px; /* adds some space between employer and dates */
     }
 
     .dates {
-        color: #777; /* lighter gray text color */
+        color: rgb(0, 0, 0); /* lighter gray text color */
         margin-bottom: 10px; /* adds some space between dates and list */
         grid-row-start: 3;
     }
