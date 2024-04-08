@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://kit.fontawesome.com/4e7bec34cd.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -32,6 +33,33 @@
             // Update visitor count every 5 seconds
             setInterval(updateVisitorCount, 5000);
         });
+        // Make a POST request to the API Gateway endpoint
+function trackVisitor() {
+    const endpoint = 'https://2s1y81d4hd.execute-api.us-east-1.amazonaws.com/default'; // Replace this with your API Gateway endpoint
+    const visitorData = {
+        visitor_id: 'unique_visitor_id',
+        timestamp: new Date().toISOString()
+    };
+
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(visitorData)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Visitor tracked successfully');
+        } else {
+            console.error('Failed to track visitor');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
     </script>
 
     <div class="container">
@@ -89,12 +117,16 @@
         </div> 
        </div>
        <div class="projects">
-        <h4 class="tag">Projects</h4>
-        <div> 
+        <p class="tag2">Projects</p>
+        <div id="p1"> 
             <p class="pname">PC Parts</p>
-            <img id="pcparts" onclick="window.open('https://pc-super-store.onrender.com/')" src="pc.png">
+            <img id="pcparts" onclick="window.open('https://pc-super-store.onrender.com/')" src="2023-03-07.png">
         </div>
-       </div>
+        <div id="p2"> 
+            <p class="pname">Movie Hunt</p>
+            <img id="mhunt" onclick="window.open('https://pc-super-store.onrender.com/')" src="movie.jpg">
+        </div>
+      </div>
    </div>
 </body>
 </html>
