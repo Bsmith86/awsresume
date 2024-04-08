@@ -18,7 +18,7 @@
         $(document).ready(function() {
             // Function to update visitor count
             function updateVisitorCount() {
-                $.post('<YOUR_API_ENDPOINT>', function(data) {
+                $.post('https://2s1y81d4hd.execute-api.us-east-1.amazonaws.com/default', function(data) {
                     console.log(data);
                     // Update visitor count on the webpage
                     $('#visitorCount').text(data.message);
