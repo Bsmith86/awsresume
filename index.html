@@ -7,59 +7,17 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="https://kit.fontawesome.com/4e7bec34cd.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
     
     <p>Total Visitors: <span id="visitorCount">Loading...</span></p>
+    
 
+    <!-- Call the function to make the API request -->
     <script>
-        $(document).ready(function() {
-            // Function to update visitor count
-            function updateVisitorCount() {
-                $.post('https://2s1y81d4hd.execute-api.us-east-1.amazonaws.com/default', function(data) {
-                    console.log(data);
-                    // Update visitor count on the webpage
-                    $('#visitorCount').text(data.message);
-                }).fail(function(error) {
-                    console.error(error);
-                });
-            }
-
-            // Initially update visitor count
-            updateVisitorCount();
-
-            // Update visitor count every 5 seconds
-            setInterval(updateVisitorCount, 5000);
-        });
-        // Make a POST request to the API Gateway endpoint
-function trackVisitor() {
-    const endpoint = 'https://2s1y81d4hd.execute-api.us-east-1.amazonaws.com/default'; // Replace this with your API Gateway endpoint
-    const visitorData = {
-        visitor_id: 'unique_visitor_id',
-        timestamp: new Date().toISOString()
-    };
-
-    fetch(endpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(visitorData)
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log('Visitor tracked successfully');
-        } else {
-            console.error('Failed to track visitor');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
+        makeApiRequest();
     </script>
 
     <div class="container">

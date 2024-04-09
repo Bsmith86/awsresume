@@ -1,42 +1,22 @@
-// Import AWS SDK
-const AWS = require('aws-sdk');
+// apiRequest.js
 
-// Create DynamoDB Document Client
-const docClient = new AWS.DynamoDB.DocumentClient();
+// Replace this URL with your API Gateway endpoint
+const apiUrl = 'https://wj7z0n145l.execute-api.us-east-1.amazonaws.com';
 
-// Lambda handler function
-exports.handler = async (event) => {
-    try {
-        // Update visitor count in DynamoDB
-        await updateVisitorCount();
-        
-        // Return success response
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Visitor count updated successfully' })
-        };
-    } catch (error) {
-        // Return error response
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: error.message })
-        };
-    }
-};
-
-// Function to update visitor count in DynamoDB
-async function updateVisitorCount() {
-    const params = {
-        TableName: 'VisitorCount',
-        Key: { id: 'total_visitors' },
-        UpdateExpression: 'ADD #count :incr',
-        ExpressionAttributeNames: {
-            '#count': 'count'
-        },
-        ExpressionAttributeValues: {
-            ':incr': 1
-        }
-    };
-
-    await docClient.update(params).promise();
+// Function to make a GET request to the API Gateway endpoint
+function makeApiRequest() {
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API response:', data);
+            // You can perform further actions with the API response here
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }
